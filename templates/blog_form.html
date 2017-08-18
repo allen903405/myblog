@@ -1,0 +1,23 @@
+<html>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>BLOG編輯</title>
+    <head></head>
+    <body>
+       {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li style="color: red;">{{error}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    <a href="/blog/list">回主頁>></a><p/>
+    <form action="/blog/form" method="post">
+       {% csrf_token %}
+       <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="儲存">
+    </form>
+
+    </body>
+</html>
